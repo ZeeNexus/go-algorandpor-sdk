@@ -1,0 +1,14 @@
+dist: bionic
+language: go
+
+go:
+  - "1.12"
+
+install:
+  - go get -u golang.org/x/lint/golint
+  - curl https://raw.githubusercontent.com/algorand/algorand-sdk-testing/master/scripts/sdkupdate.sh -o ~/sdkupdate.sh
+  - chmod +x ~/sdkupdate.sh
+
+script:
+  - make build
+  - ~/sdkupdate.sh --go
