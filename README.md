@@ -1,10 +1,9 @@
-# go-algorand-sdk
+# go-algorandpor-sdk
 
-[![Build Status](https://travis-ci.com/algorand/go-algorand-sdk.svg?branch=master)](https://travis-ci.com/algorand/go-algorand-sdk)
-[![Go Report Card](https://goreportcard.com/badge/github.com/algorand/go-algorand-sdk)](https://goreportcard.com/report/github.com/algorand/go-algorand-sdk)
+
 [![GoDoc](https://godoc.org/github.com/algorand/go-algorand-sdk?status.svg)](https://godoc.org/github.com/algorand/go-algorand-sdk)
 
-The Algorand golang SDK provides:
+The AlgorandPoR golang SDK provides:
 
 - HTTP clients for the algod (agreement) and kmd (key management) APIs
 - Standalone functionality for interacting with the Algorand protocol, including transaction signing, message encoding, etc.
