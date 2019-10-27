@@ -8,9 +8,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"golang.org/x/crypto/ed25519"
 
-	"github.com/algorand/go-algorand-sdk/encoding/msgpack"
-	"github.com/algorand/go-algorand-sdk/mnemonic"
-	"github.com/algorand/go-algorand-sdk/types"
+	"github.com/ZeeNexus/go-algorandpor-sdk/encoding/msgpack"
+	"github.com/ZeeNexus/go-algorandpor-sdk/mnemonic"
+	"github.com/ZeeNexus/go-algorandpor-sdk/types"
 )
 
 func makeTestMultisigAccount(t *testing.T) (MultisigAccount, ed25519.PrivateKey, ed25519.PrivateKey, ed25519.PrivateKey) {

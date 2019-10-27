@@ -1,7 +1,7 @@
 package auction
 
 import (
-	"github.com/algorand/go-algorand-sdk/types"
+	"github.com/ZeeNexus/go-algorandpor-sdk/types"
 )
 
 // MakeBid constructs a bid using the passed parameters. `bidderAddress` and

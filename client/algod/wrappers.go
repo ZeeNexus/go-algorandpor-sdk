@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/algorand/go-algorand-sdk/client/algod/models"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/algod/models"
 )
 
 // Status retrieves the StatusResponse from the running node

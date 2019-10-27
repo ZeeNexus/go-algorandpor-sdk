@@ -10,6 +10,8 @@ import (
 type TxType string
 
 const (
+	// ReviewTx is the TxType for review transactions
+	ReviewTx TxType = "review"
 	// PaymentTx is the TxType for payment transactions
 	PaymentTx TxType = "pay"
 	// KeyRegistrationTx is the TxType for key registration transactions

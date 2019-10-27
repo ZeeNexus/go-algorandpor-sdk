@@ -3,8 +3,8 @@ package kmd
 import (
 	"golang.org/x/crypto/ed25519"
 
-	"github.com/algorand/go-algorand-sdk/encoding/msgpack"
-	"github.com/algorand/go-algorand-sdk/types"
+	"github.com/ZeeNexus/go-algorandpor-sdk/encoding/msgpack"
+	"github.com/ZeeNexus/go-algorandpor-sdk/types"
 )
 
 // Version returns a VersionResponse containing a list of kmd API versions
