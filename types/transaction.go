@@ -13,6 +13,7 @@ type Transaction struct {
 	// Fields for different types of transactions
 	KeyregTxnFields
 	PaymentTxnFields
+	ReviewTxnFields
 	AssetConfigTxnFields
 	AssetTransferTxnFields
 	AssetFreezeTxnFields
@@ -39,6 +40,21 @@ type KeyregTxnFields struct {
 	VoteLast        Round  `codec:"votelst"`
 	VoteKeyDilution uint64 `codec:"votekd"`
 }
+
+// ReviewTxnFields captures the fields used by review transactions.
+type ReviewTxnFields struct {
+	_struct struct{} `codec:",omitempty,omitemptyarray"`
+
+	ReceiverReview Address    `codec:"rcv"`
+	AmountReview   MicroAlgos `codec:"amt"`
+
+	// When CloseRemainderToReview is set, it indicates that the
+	// transaction is requesting that the account should be
+	// closed, and all remaining funds be transferred to this
+	// address.
+	CloseRemainderToReview Address `codec:"close"`
+}
+
 
 // PaymentTxnFields captures the fields used by payment transactions.
 type PaymentTxnFields struct {

@@ -6,7 +6,7 @@ import (
 
 	"golang.org/x/crypto/ed25519"
 
-	"github.com/algorand/go-algorand-sdk/types"
+	"github.com/ZeeNexus/go-algorandpor-sdk/types"
 )
 
 // prefix for multisig transaction signing

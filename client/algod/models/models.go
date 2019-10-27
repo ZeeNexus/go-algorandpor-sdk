@@ -6,7 +6,7 @@
 // No client should depend on any package in v1.
 package models
 
-import "github.com/algorand/go-algorand-sdk/types"
+import "github.com/ZeeNexus/go-algorandpor-sdk/types"
 
 // NodeStatus contains the information about a node status
 // swagger:model NodeStatus
@@ -73,6 +73,11 @@ type Account struct {
 	//
 	// required: true
 	Amount uint64 `json:"amount"`
+
+
+	// Reputation value
+	// required: true
+	Reputation uint64 `json:"reputation"`
 
 	// PendingRewards specifies the amount of MicroAlgos of pending
 	// rewards in this account.
@@ -254,6 +259,9 @@ type Transaction struct {
 	// To prevent extraneous fields, all must have the "omitempty" tag.
 	Payment *PaymentTransactionType `json:"payment,omitempty"`
 
+
+	Review *ReviewTransactionType `json:"review,omitempty"`
+
 	// FromRewards is the amount of pending rewards applied to the From
 	// account as part of this transaction.
 	//
@@ -270,6 +278,43 @@ type Transaction struct {
 	// required: true
 	GenesisHash Bytes `json:"genesishashb64"`
 }
+
+
+
+type ReviewTransactionType struct {
+	// To is the receiver's address
+	//
+	// required: true
+	To string `json:"to"`
+
+	// CloseRemainderTo is the address the sender closed to
+	//
+	// required: false
+	CloseRemainderTo string `json:"close,omitempty"`
+
+	// CloseAmount is the amount sent to CloseRemainderTo, for committed transaction
+	//
+	// required: false
+	CloseAmount uint64 `json:"closeamount,omitempty"`
+
+	// Amount is the amount of MicroAlgos intended to be transferred
+	//
+	// required: true
+	Amount uint64 `json:"amount"`
+
+	// ToRewards is the amount of pending rewards applied to the To account
+	// as part of this transaction.
+	//
+	// required: false
+	ToRewards uint64 `json:"torewards,omitempty"`
+
+	// CloseRewards is the amount of pending rewards applied to the CloseRemainderTo
+	// account as part of this transaction.
+	//
+	// required: false
+	CloseRewards uint64 `json:"closerewards,omitempty"`
+}
+
 
 // PaymentTransactionType contains the additional fields for a payment Transaction
 // swagger:model PaymentTransactionType

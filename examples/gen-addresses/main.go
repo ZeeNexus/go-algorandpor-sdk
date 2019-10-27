@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/algorand/go-algorand-sdk/client/algod"
-	"github.com/algorand/go-algorand-sdk/client/kmd"
-	"github.com/algorand/go-algorand-sdk/crypto"
-	"github.com/algorand/go-algorand-sdk/transaction"
-	"github.com/algorand/go-algorand-sdk/types"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/algod"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/kmd"
+	"github.com/ZeeNexus/go-algorandpor-sdk/crypto"
+	"github.com/ZeeNexus/go-algorandpor-sdk/transaction"
+	"github.com/ZeeNexus/go-algorandpor-sdk/types"
 )
 
 // CHANGE ME

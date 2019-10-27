@@ -1,7 +1,7 @@
 # go-algorandpor-sdk
 
 
-[![GoDoc](https://godoc.org/github.com/algorand/go-algorand-sdk?status.svg)](https://godoc.org/github.com/algorand/go-algorand-sdk)
+[![GoDoc](https://godoc.org/github.com/ZeeNexus/go-algorandpor-sdk?status.svg)](https://godoc.org/github.com/ZeeNexus/go-algorandpor-sdk)
 
 The AlgorandPoR golang SDK provides:
 
@@ -10,7 +10,7 @@ The AlgorandPoR golang SDK provides:
 
 # Documentation
 
-Full documentation is available [on godoc](https://godoc.org/github.com/algorand/go-algorand-sdk). You can also self-host the documentation by running `godoc -http=:8099` and visiting `http://localhost:8099/pkg/github.com/algorand/go-algorand-sdk` in your web browser.
+Full documentation is available [on godoc](https://godoc.org/github.com/ZeeNexus/go-algorandpor-sdk). You can also self-host the documentation by running `godoc -http=:8099` and visiting `http://localhost:8099/pkg/github.com/ZeeNexus/go-algorandpor-sdk` in your web browser.
 
 Additional developer documentation can be found on [developer.algorand.org](https://developer.algorand.org/)
 
@@ -28,8 +28,8 @@ In `client/`, the `algod` and `kmd` packages provide HTTP clients for their corr
 To download the SDK, open a terminal and use the `go get` command.
 
 ```command
-go get -u github.com/algorand/go-algorand-sdk/...
-go generate github.com/algorand/go-algorand-sdk/...
+go get -u github.com/ZeeNexus/go-algorandpor-sdk/...
+go generate github.com/ZeeNexus/go-algorandpor-sdk/...
 ```
 
 If you are connected to the Algorand network, your algod process should already be running. The kmd process must be started manually, however. Start and stop kmd using `goal kmd start` and `goal kmd stop`:
@@ -46,8 +46,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand-sdk/client/algod"
-	"github.com/algorand/go-algorand-sdk/client/kmd"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/algod"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/kmd"
 )
 
 const algodAddress = "http://localhost:8080"
@@ -85,7 +85,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/algorand/go-algorand-sdk/client/algod"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/algod"
 )
 
 // These constants represent the algod REST endpoint and the corresponding
@@ -141,8 +141,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand-sdk/client/kmd"
-	"github.com/algorand/go-algorand-sdk/types"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/kmd"
+	"github.com/ZeeNexus/go-algorandpor-sdk/types"
 )
 
 // These constants represent the kmdd REST endpoint and the corresponding API
@@ -204,8 +204,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand-sdk/client/kmd"
-	"github.com/algorand/go-algorand-sdk/mnemonic"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/kmd"
+	"github.com/ZeeNexus/go-algorandpor-sdk/mnemonic"
 )
 
 // These constants represent the kmd REST endpoint and the corresponding API
@@ -278,9 +278,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand-sdk/client/kmd"
-	"github.com/algorand/go-algorand-sdk/mnemonic"
-	"github.com/algorand/go-algorand-sdk/types"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/kmd"
+	"github.com/ZeeNexus/go-algorandpor-sdk/mnemonic"
+	"github.com/ZeeNexus/go-algorandpor-sdk/types"
 )
 
 // These constants represent the kmd REST endpoint and the corresponding API
@@ -323,9 +323,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand-sdk/client/algod"
-	"github.com/algorand/go-algorand-sdk/client/kmd"
-	"github.com/algorand/go-algorand-sdk/transaction"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/algod"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/kmd"
+	"github.com/ZeeNexus/go-algorandpor-sdk/transaction"
 )
 
 // CHANGE ME
@@ -442,9 +442,9 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/algorand/go-algorand-sdk/crypto"
-	"github.com/algorand/go-algorand-sdk/mnemonic"
-	"github.com/algorand/go-algorand-sdk/transaction"
+	"github.com/ZeeNexus/go-algorandpor-sdk/crypto"
+	"github.com/ZeeNexus/go-algorandpor-sdk/mnemonic"
+	"github.com/ZeeNexus/go-algorandpor-sdk/transaction"
 )
 
 func main() {
@@ -501,7 +501,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/algorand/go-algorand-sdk/client/algod"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/algod"
 )
 
 // CHANGE ME
@@ -621,10 +621,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand-sdk/client/algod"
-	"github.com/algorand/go-algorand-sdk/crypto"
-	"github.com/algorand/go-algorand-sdk/transaction"
-	"github.com/algorand/go-algorand-sdk/types"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/algod"
+	"github.com/ZeeNexus/go-algorandpor-sdk/crypto"
+	"github.com/ZeeNexus/go-algorandpor-sdk/transaction"
+	"github.com/ZeeNexus/go-algorandpor-sdk/types"
 )
 
 // CHANGE ME
@@ -711,11 +711,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/algorand/go-algorand-sdk/client/algod"
-	"github.com/algorand/go-algorand-sdk/crypto"
-	"github.com/algorand/go-algorand-sdk/mnemonic"
-	"github.com/algorand/go-algorand-sdk/transaction"
-	"github.com/algorand/go-algorand-sdk/types"
+	"github.com/ZeeNexus/go-algorandpor-sdk/client/algod"
+	"github.com/ZeeNexus/go-algorandpor-sdk/crypto"
+	"github.com/ZeeNexus/go-algorandpor-sdk/mnemonic"
+	"github.com/ZeeNexus/go-algorandpor-sdk/transaction"
+	"github.com/ZeeNexus/go-algorandpor-sdk/types"
 )
 
 // CHANGE ME

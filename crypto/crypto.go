@@ -8,9 +8,9 @@ import (
 	"fmt"
 	"golang.org/x/crypto/ed25519"
 
-	"github.com/algorand/go-algorand-sdk/encoding/msgpack"
-	"github.com/algorand/go-algorand-sdk/logic"
-	"github.com/algorand/go-algorand-sdk/types"
+	"github.com/ZeeNexus/go-algorandpor-sdk/encoding/msgpack"
+	"github.com/ZeeNexus/go-algorandpor-sdk/logic"
+	"github.com/ZeeNexus/go-algorandpor-sdk/types"
 )
 
 // txidPrefix is prepended to a transaction when computing its txid
