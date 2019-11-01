@@ -133,8 +133,12 @@ type Header struct {
 	Sender      Address    `codec:"snd"`
 	Fee         MicroAlgos `codec:"fee"`
 	FirstValid  Round      `codec:"fv"`
-	LastValid   Round      `codec:"lv"`
+	LastValid   Round      `codec:"lv"`	
 	Note        []byte     `codec:"note"`
+    ReviewNote  []byte     `codec:"reviewnote"` // Uniqueness or app-level data about txn
+	ReviewRate  uint64     `codec:"reviewrate"` // Uniqueness or app-level data about txn
+    ReviewEval  uint64     `codec:"revieweval"` // Uniqueness or app-level data about txn
+    RepAdjust   int64     `codec:"repadjust"`
 	GenesisID   string     `codec:"gen"`
 	GenesisHash Digest     `codec:"gh"`
 

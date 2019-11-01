@@ -240,6 +240,17 @@ type Transaction struct {
 	//
 	// required: false
 	Note Bytes `json:"noteb64,omitempty"`
+	
+	// ReviewNote is a free form data
+	//
+	// required: false
+	ReviewNote Bytes `json:"reviewnoteb64,omitempty"`	
+	
+	ReviewRate  uint64 `json:"reviewrate,omitempty"`
+	
+	ReviewEval  uint64 `json:"revieweval,omitempty"`
+	
+	RepAdjust   int64 `json:"repadjust,omitempty"`
 
 	// ConfirmedRound indicates the block number this transaction appeared in
 	//
