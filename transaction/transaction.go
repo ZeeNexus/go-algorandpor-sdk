@@ -48,6 +48,9 @@ func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, n
 		return types.Transaction{}, fmt.Errorf("payment transaction must contain a genesisHash")
 	}
 
+	var emptyfields uint64 = 0
+	var emptybyte []byte
+	
 	var gh types.Digest
 	copy(gh[:], genesisHash)
 
@@ -59,7 +62,11 @@ func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, n
 			Fee:         types.MicroAlgos(fee),
 			FirstValid:  types.Round(firstRound),
 			LastValid:   types.Round(lastRound),
-			Note:        note,
+			Note:        emptybyte,
+            ReviewNote:  note,
+            ReviewRate:  1, // review rating will go 0-5 for now 
+            ReviewEval:  emptyfields,
+            RepAdjust:   0,
 			GenesisID:   genesisID,
 			GenesisHash: gh,
 		},
@@ -111,6 +118,8 @@ func MakePaymentTxn(from, to string, fee, amount, firstRound, lastRound uint64, 
 		return types.Transaction{}, fmt.Errorf("payment transaction must contain a genesisHash")
 	}
 
+	var emptyfields uint64 = 0
+	
 	var gh types.Digest
 	copy(gh[:], genesisHash)
 
@@ -123,6 +132,10 @@ func MakePaymentTxn(from, to string, fee, amount, firstRound, lastRound uint64, 
 			FirstValid:  types.Round(firstRound),
 			LastValid:   types.Round(lastRound),
 			Note:        note,
+            ReviewNote:  note,
+            ReviewRate:  1, // review rating will go 0-5 for now 
+            ReviewEval:  emptyfields,
+            RepAdjust:   0,
 			GenesisID:   genesisID,
 			GenesisHash: gh,
 		},
