@@ -26,7 +26,7 @@ func ValidateAddrs(from, to string) (types.Address, types.Address, error) {
 	return fromAddr, toAddr, nil
 }
 
-func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, note []byte, closeRemainderTo, genesisID string, genesisHash []byte) (types.Transaction, error) {
+func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, review []byte, rating uint64, closeRemainderTo, genesisID string, genesisHash []byte) (types.Transaction, error) {
 
 	fromAddr, toAddr, err := ValidateAddrs(from, to)
 	if err != nil {
@@ -50,7 +50,7 @@ func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, n
 
 	var emptyfields uint64 = 0
 	var emptybyte []byte
-	
+
 	var gh types.Digest
 	copy(gh[:], genesisHash)
 
@@ -63,10 +63,10 @@ func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, n
 			FirstValid:  types.Round(firstRound),
 			LastValid:   types.Round(lastRound),
 			Note:        emptybyte,
-            ReviewNote:  note,
-            ReviewRate:  1, // review rating will go 0-5 for now 
-            ReviewEval:  emptyfields,
-            RepAdjust:   0,
+      ReviewNote:  review,
+      ReviewRate:  rating, // review rating will go 0-5 for now
+      ReviewEval:  emptyfields,
+      RepAdjust:   0,
 			GenesisID:   genesisID,
 			GenesisHash: gh,
 		},
@@ -119,7 +119,7 @@ func MakePaymentTxn(from, to string, fee, amount, firstRound, lastRound uint64, 
 	}
 
 	var emptyfields uint64 = 0
-	
+
 	var gh types.Digest
 	copy(gh[:], genesisHash)
 
@@ -133,7 +133,7 @@ func MakePaymentTxn(from, to string, fee, amount, firstRound, lastRound uint64, 
 			LastValid:   types.Round(lastRound),
 			Note:        note,
             ReviewNote:  note,
-            ReviewRate:  1, // review rating will go 0-5 for now 
+            ReviewRate:  1, // review rating will go 0-5 for now
             ReviewEval:  emptyfields,
             RepAdjust:   0,
 			GenesisID:   genesisID,
