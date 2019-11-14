@@ -32,6 +32,14 @@ go get -u github.com/ZeeNexus/go-algorandpor-sdk/...
 go generate github.com/ZeeNexus/go-algorandpor-sdk/...
 ```
 
+# Alt Start
+If you have git cloned to the src/github.com/ZeeNexus dir, go to the /logic/ dir
+```command
+/go-algorandpor-sdk/logic/ go generate
+```
+This fixes the "langSpecJson undefined" error when running a dApp
+
+
 If you are connected to the Algorand network, your algod process should already be running. The kmd process must be started manually, however. Start and stop kmd using `goal kmd start` and `goal kmd stop`:
 
 ```command
