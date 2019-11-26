@@ -6,7 +6,11 @@
 // No client should depend on any package in v1.
 package models
 
-import "github.com/ZeeNexus/go-algorandpor-sdk/types"
+import (
+    
+    
+    "github.com/ZeeNexus/go-algorandpor-sdk/types"
+)
 
 // NodeStatus contains the information about a node status
 // swagger:model NodeStatus
@@ -252,6 +256,8 @@ type Transaction struct {
 	
 	RepAdjust   int64 `json:"repadjust,omitempty"`
 
+	
+	
 	// ConfirmedRound indicates the block number this transaction appeared in
 	//
 	// required: false

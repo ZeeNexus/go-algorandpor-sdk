@@ -1,5 +1,9 @@
 package types
 
+import (
+    
+)
+
 // Transaction describes a transaction that can appear in a block.
 type Transaction struct {
 	_struct struct{} `codec:",omitempty,omitemptyarray"`
@@ -141,6 +145,7 @@ type Header struct {
     RepAdjust   int64     `codec:"repadjust"`
 	GenesisID   string     `codec:"gen"`
 	GenesisHash Digest     `codec:"gh"`
+	
 
 	// Group specifies that this transaction is part of a
 	// transaction group (and, if so, specifies the hash

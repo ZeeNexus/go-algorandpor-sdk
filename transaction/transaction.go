@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"encoding/base64"
 	"fmt"
+    
+    
 	"github.com/ZeeNexus/go-algorandpor-sdk/crypto"
 	"github.com/ZeeNexus/go-algorandpor-sdk/types"
 )
@@ -48,8 +50,8 @@ func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, r
 		return types.Transaction{}, fmt.Errorf("payment transaction must contain a genesisHash")
 	}
 
-	var emptyfields uint64 = 0
-	var emptybyte []byte
+	// var emptyfields uint64 = 0
+	// var emptybyte []byte
 
 	var gh types.Digest
 	copy(gh[:], genesisHash)
@@ -62,13 +64,14 @@ func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, r
 			Fee:         types.MicroAlgos(fee),
 			FirstValid:  types.Round(firstRound),
 			LastValid:   types.Round(lastRound),
-			Note:        emptybyte,
-      ReviewNote:  review,
-      ReviewRate:  rating, // review rating will go 0-5 for now
-      ReviewEval:  emptyfields,
-      RepAdjust:   0,
+			Note:        []byte(" "),
+            ReviewNote:  review,
+            ReviewRate:  rating, // review rating will go 0-5 for now
+            ReviewEval:  uint64(0),
+            RepAdjust:   0,
 			GenesisID:   genesisID,
 			GenesisHash: gh,
+            
 		},
 		ReviewTxnFields:		types.ReviewTxnFields {
 			ReceiverReview:   toAddr,
@@ -94,11 +97,14 @@ func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, r
 
 
 
+
+
+
 // MakePaymentTxn constructs a payment transaction using the passed parameters.
 // `from` and `to` addresses should be checksummed, human-readable addresses
 // fee is fee per byte as received from algod SuggestedFee API call
 func MakePaymentTxn(from, to string, fee, amount, firstRound, lastRound uint64, note []byte, closeRemainderTo, genesisID string, genesisHash []byte) (types.Transaction, error) {
-
+    
 	fromAddr, toAddr, err := ValidateAddrs(from, to)
 	if err != nil {
 		return types.Transaction{}, err
@@ -118,7 +124,7 @@ func MakePaymentTxn(from, to string, fee, amount, firstRound, lastRound uint64, 
 		return types.Transaction{}, fmt.Errorf("payment transaction must contain a genesisHash")
 	}
 
-	var emptyfields uint64 = 0
+	//var emptyfields uint64 = 0
 
 	var gh types.Digest
 	copy(gh[:], genesisHash)
@@ -134,10 +140,11 @@ func MakePaymentTxn(from, to string, fee, amount, firstRound, lastRound uint64, 
 			Note:        note,
             ReviewNote:  note,
             ReviewRate:  1, // review rating will go 0-5 for now
-            ReviewEval:  emptyfields,
+            ReviewEval:  uint64(0),
             RepAdjust:   0,
 			GenesisID:   genesisID,
 			GenesisHash: gh,
+            
 		},
 		PaymentTxnFields: types.PaymentTxnFields{
 			Receiver:         toAddr,
