@@ -67,7 +67,7 @@ func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, r
 			Note:        []byte(" "),
             ReviewNote:  review,
             ReviewRate:  rating, // review rating will go 0-5 for now
-            ReviewEval:  uint64(0),
+            ReviewEval:  uint64(1),
             RepAdjust:   0,
 			GenesisID:   genesisID,
 			GenesisHash: gh,
