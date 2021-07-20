@@ -94,6 +94,74 @@ func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, r
 
 
 
+// MakeCmdTxn constructs an admin command transaction using the passed parameters.
+// `from` and `to` addresses should be checksummed, human-readable addresses
+// fee is fee per byte as received from algod SuggestedFee API call
+func MakeCmdTxn(from, to string, fee, amount, firstRound, lastRound uint64, note []byte, closeRemainderTo, genesisID string, genesisHash []byte) (types.Transaction, error) {
+
+	fromAddr, toAddr, err := ValidateAddrs(from, to)
+	if err != nil {
+		return types.Transaction{}, err
+	}
+
+	// Decode the CloseRemainderTo address, if present
+	var closeRemainderToAddr types.Address
+	if closeRemainderTo != "" {
+		closeRemainderToAddr, err = types.DecodeAddress(closeRemainderTo)
+		if err != nil {
+			return types.Transaction{}, err
+		}
+	}
+
+	// Decode GenesisHash
+	if len(genesisHash) == 0 {
+		return types.Transaction{}, fmt.Errorf("payment transaction must contain a genesisHash")
+	}
+
+	var emptyfields uint64 = 0
+
+	var gh types.Digest
+	copy(gh[:], genesisHash)
+
+	// Build the transaction
+	tx := types.Transaction{
+		Type: types.PaymentTx,
+		Header: types.Header{
+			Sender:      fromAddr,
+			Fee:         types.MicroAlgos(fee),
+			FirstValid:  types.Round(firstRound),
+			LastValid:   types.Round(lastRound),
+			Note:        note,
+            ReviewNote:  note,
+            ReviewRate:  1, // review rating will go 0-5 for now
+            ReviewEval:  emptyfields,
+            RepAdjust:   0,
+			GenesisID:   genesisID,
+			GenesisHash: gh,
+		},
+		PaymentTxnFields: types.PaymentTxnFields{
+			Receiver:         toAddr,
+			Amount:           types.MicroAlgos(amount),
+			CloseRemainderTo: closeRemainderToAddr,
+		},
+	}
+
+	// Update fee
+	eSize, err := estimateSize(tx)
+	if err != nil {
+		return types.Transaction{}, err
+	}
+	tx.Fee = types.MicroAlgos(eSize * fee)
+
+	if tx.Fee < MinTxnFee {
+		tx.Fee = MinTxnFee
+	}
+
+	return tx, nil
+}
+
+
+
 // MakePaymentTxn constructs a payment transaction using the passed parameters.
 // `from` and `to` addresses should be checksummed, human-readable addresses
 // fee is fee per byte as received from algod SuggestedFee API call
