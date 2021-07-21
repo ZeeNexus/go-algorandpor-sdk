@@ -74,10 +74,31 @@ type Account struct {
 	// required: true
 	Amount uint64 `json:"amount"`
 
-
 	// Reputation value
 	// required: true
 	Reputation uint64 `json:"reputation"`
+
+	// Blacklisted indicates whether or not the account is blacklisted for the round (blacklist feature)
+	//
+	// required: true
+	// 0 indicates false (good guy)
+	// 1 indicates true (bad guy)
+	Blacklisted uint64 `json:"blacklisted"`
+	
+	// MetaData indicates the metadata (gender, organization, national origin etc) for this account
+	//
+	// required: true
+	MetaData MetaData `json:"meta"`
+
+	// NumberReviews indicates the number of reviews for this account
+	//
+	// required: true
+	NumberReviews uint64 `json:"numreviews"`
+
+	// LastReviewTime indicates the timestamp of the last review for this account
+	//
+	// required: true
+	LastReviewTime []byte `json:"lastreview"`
 
 	// PendingRewards specifies the amount of MicroAlgos of pending
 	// rewards in this account.
