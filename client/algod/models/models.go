@@ -56,6 +56,39 @@ type TransactionID struct {
 	TxID string `json:"txId"`
 }
 
+// Stores meta data to detect bias
+type MetaData struct {
+	// BlacklistedCount indicates the number of times this account has been blacklisted
+	//
+	// required: false
+	BlacklistedCount uint64
+	// ReviewCountPer500Rounds indicates the number of reviews over the last 500 rounds for this account
+	//
+	// required: false
+	ReviewCountPer500Rounds uint64
+	// Institution indicates the timestamp of the last review for this account
+	//
+	// required: false
+	// swagger:strfmt byte
+	Institution []byte
+	// Organization indicates the timestamp of the last review for this account
+	//
+	// required: false
+	// swagger:strfmt byte
+	Organization []byte
+	// CountryOfOrigin indicates the timestamp of the last review for this account
+	//
+	// required: false
+	// swagger:strfmt byte
+	CountryOfOrigin []byte
+	// GroupAssociation indicates the timestamp of the last review for this account
+	//
+	// required: false
+	// swagger:strfmt byte
+	GroupAssociation []byte
+	// Add more when needed
+}
+
 // Account Description
 // swagger:model Account
 type Account struct {
