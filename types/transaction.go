@@ -126,6 +126,16 @@ type AssetFreezeTxnFields struct {
 	AssetFrozen bool `codec:"afrz"`
 }
 
+// ItemStruct holds basic properties and an additional 3 different byte data properties.
+type ItemStruct struct {
+    ItemName    []byte            `codec:"itemname"`
+    CategoryNa  []byte            `codec:"categoryname"`
+	prop1      []byte
+	prop2      []byte
+	prop3      []byte
+}
+
+
 // Header captures the fields common to every transaction type.
 type Header struct {
 	_struct struct{} `codec:",omitempty,omitemptyarray"`
@@ -139,6 +149,10 @@ type Header struct {
 	ReviewRate  uint64     `codec:"reviewrate"` // Uniqueness or app-level data about txn
     ReviewEval  uint64     `codec:"revieweval"` // Uniqueness or app-level data about txn
     RepAdjust   int64     `codec:"repadjust"`
+    ItemID      int64             `codec:"itemid"`    
+    ItemStruct  ItemStruct        `codec:"itemstruct"`
+    ItemIterat  int64             `codec:"itemiteration"`
+    CategoryID  int64             `codec:"categoryid"` 
 	GenesisID   string     `codec:"gen"`
 	GenesisHash Digest     `codec:"gh"`
 

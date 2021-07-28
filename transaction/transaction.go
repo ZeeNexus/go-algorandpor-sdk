@@ -49,7 +49,9 @@ func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, r
 	}
 
 	var emptyfields uint64 = 0
+	var emptyfieldsInt int64 = 0
 	var emptybyte []byte
+	var is types.ItemStruct
 
 	var gh types.Digest
 	copy(gh[:], genesisHash)
@@ -63,10 +65,14 @@ func MakeReviewTxn(from, to string, fee, amount, firstRound, lastRound uint64, r
 			FirstValid:  types.Round(firstRound),
 			LastValid:   types.Round(lastRound),
 			Note:        emptybyte,
-      ReviewNote:  review,
-      ReviewRate:  rating, // review rating will go 0-5 for now
-      ReviewEval:  emptyfields,
-      RepAdjust:   0,
+      		ReviewNote:  review,
+      		ReviewRate:  rating, // review rating will go 0-5 for now
+      		ReviewEval:  emptyfields,
+      		RepAdjust:   0,
+            ItemID:      emptyfieldsInt,
+    		ItemStruct:  is,
+    		ItemIterat:  emptyfieldsInt,
+    		CategoryID:  emptyfieldsInt,
 			GenesisID:   genesisID,
 			GenesisHash: gh,
 		},
@@ -119,6 +125,8 @@ func MakeCmdTxn(from, to string, fee, amount, firstRound, lastRound uint64, note
 	}
 
 	var emptyfields uint64 = 0
+	var emptyfieldsInt int64 = 0
+	var is types.ItemStruct
 
 	var gh types.Digest
 	copy(gh[:], genesisHash)
@@ -136,6 +144,10 @@ func MakeCmdTxn(from, to string, fee, amount, firstRound, lastRound uint64, note
             ReviewRate:  1, // review rating will go 0-5 for now
             ReviewEval:  emptyfields,
             RepAdjust:   0,
+            ItemID:      emptyfieldsInt,
+    		ItemStruct:	 is,
+    		ItemIterat:  emptyfieldsInt,
+    		CategoryID:  emptyfieldsInt,
 			GenesisID:   genesisID,
 			GenesisHash: gh,
 		},
@@ -187,6 +199,9 @@ func MakePaymentTxn(from, to string, fee, amount, firstRound, lastRound uint64, 
 	}
 
 	var emptyfields uint64 = 0
+	var emptyfieldsInt int64 = 0
+	var is types.ItemStruct
+
 
 	var gh types.Digest
 	copy(gh[:], genesisHash)
@@ -204,6 +219,10 @@ func MakePaymentTxn(from, to string, fee, amount, firstRound, lastRound uint64, 
             ReviewRate:  1, // review rating will go 0-5 for now
             ReviewEval:  emptyfields,
             RepAdjust:   0,
+            ItemID:      emptyfieldsInt,
+    		ItemStruct:  is,
+    		ItemIterat:  emptyfieldsInt,
+    		CategoryID:  emptyfieldsInt,
 			GenesisID:   genesisID,
 			GenesisHash: gh,
 		},
