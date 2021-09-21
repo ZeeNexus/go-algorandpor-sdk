@@ -90,6 +90,13 @@ func (client Client) AccountInformation(address string, headers ...*Header) (res
 	return
 }
 
+// Accounts gets the AccountList response
+func (client Client) AccountList(headers ...*Header) (response models.AccountList, err error) {
+	params := transactionsByAddrParams{Max: 10}
+	err = client.get(&response, fmt.Sprintf("/account/accountlist"), params, headers)
+	return
+}
+
 // AssetInformation also gets the AssetInformationResponse associated with the passed asset creator and index
 func (client Client) AssetInformation(creator string, index uint64, headers ...*Header) (response models.AssetParams, err error) {
 	err = client.get(&response, fmt.Sprintf("/account/%s/assets/%d", creator, index), nil, headers)

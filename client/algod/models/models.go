@@ -190,6 +190,19 @@ type Account struct {
 	Assets map[uint64]AssetHolding `json:"assets,omitempty"`
 }
 
+// AccountList contains a list of accounts
+// swagger:model AccountList
+type AccountList struct {
+	// Accounts is a list of accounts
+	//
+	// required: true
+	Accounts []Account `json:"accounts,omitempty"`
+	// TotalAccts is number of accounts
+	//
+	// required: true
+	TotalAccts uint64 `json:"totalAccts"`	
+}
+
 // AssetParams specifies the parameters for an asset.
 // swagger:model AssetParams
 type AssetParams struct {
