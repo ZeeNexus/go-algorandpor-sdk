@@ -21,7 +21,7 @@ C. Diaz De Leon (xddlg), A. Tran (autran0), and J. Li (175552) helped contribute
 
 ## Project Layout ##
 
-`go-algorand` is split into various subpackages. algorand-por augments this layout.
+`go-algorand-sdk` is split into various subpackages. The AlgorandPoR golang SDK augments this layout. The below information is related to Algorand unless specified differently.
 
 # Package overview
 
